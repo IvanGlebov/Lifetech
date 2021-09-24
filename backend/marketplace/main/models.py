@@ -18,11 +18,10 @@ from django.db import models
 
 class Members(models.Model):
     """
+    Человек
+    --------
     ФИО
-    роль - в новую модель
     регион
-    активные мероприятия
-    пройденные мероприятия
     """
     first_name = models.CharField(max_length=50)
     second_name = models.CharField(max_length=50)
@@ -31,18 +30,39 @@ class Members(models.Model):
 
 
 class Child(models.Model):
-    person = models.ForeignKey("Members")
+    """
+    Воспитанник детдома
+    -----------------
+    человек - из таблицы MEMEBERS
+    детский дом
+    """
+    person = models.ForeignKey("Members", on_delete=models.PROTECT)
     orphanage = models.Model("Orphanages")
+
+
+class Volunteers(models.Model):
+    """
+    Волонтёр
+    -----------
+    человек
+    активные мероприятия
+    пройденные мероприятия
+    """
+    person = models.ForeignKey("Members", on_delete=models.PROTECT)
+    active_events = models.ManyToManyField("Events")
+    finished_events = models.ManyToManyField("Events")
 
 
 class Events(models.Model):
     """
+    Мероприятие
+    ---------------
     название
     статус
     регион
     площадка
     детский дом
-    спонсоры
+    спонсоры(?)
     волонтёры
     """
     title = models.CharField(max_length=100)
@@ -54,18 +74,30 @@ class Events(models.Model):
 
 class Regions(models.Model):
     """
+    Регион
+    ------------
     название
     детские дома
-    организаторы
-
     """
     title = models.CharField(max_length=100, db_index=True)
-
-
-class Organizers(models.Model):
-    title = models.CharField(max_length=100, db_index=True)
+    orphanages = models.ManyToManyField("Orphanages")
 
 
 class Orphanages(models.Model):
+    """
+    Детский дом
+    ---------
+    название
+    подконтрольные дети
+    """
     title = models.CharField(max_length=100)
-    children = models.ManyToManyField("Child", )
+    children = models.ManyToManyField("Child")
+    
+
+class Organizers(models.Model):
+    """
+    Площадка
+    ----------
+    пока что не уверен в необходимости этой таблицы
+    """
+    title = models.CharField(max_length=100, db_index=True)

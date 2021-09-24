@@ -2,8 +2,6 @@ import React from 'react'
 import { withTranslation } from "react-i18next"
 import {connect} from "react-redux"
 import PropTypes from 'prop-types'
-import User from "@pages/User/User";
-import Tasks from "./components/Content/Content";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -16,8 +14,8 @@ export default withTranslation()(connect(
   }
 
   routes = [
-    ['^/$', () => <div>test filling <a href={'/user'} > user</a></div>], // Path for / (main page with tasks)
-    ['^/user', () => <User/>], // Path to /user (user page)
+    ['^/$', () => <div>simple filling</div>], // Path for / (main page with tasks)
+    // ['^/user', () => <User/>], // Path to /user (user page)
   ]
 
 

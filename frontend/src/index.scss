@@ -14,11 +14,11 @@ $spb: space-between; //reduction
 $spe: space-evenly; //reduction
 $indent: 3px; //mini-indents for icons and text in blocks
 body {
-  background-color: $back;
+  //background-color: $back;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5em;
-  color: $color
+  //color: $color
 }
 
 %button {

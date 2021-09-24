@@ -24,7 +24,7 @@ class BasicUserManager(BaseException):
     чем успеем запустить.
     Можно считать, что набросал примерный макет базового юзера
     """
-    def create_user(self, first_name, second_name, last_name, email, region, password=none):
+    def create_user(self, first_name, second_name, last_name, email, region, password=None):
 
         user = self.model(
             email=self.normalize_email(email),
@@ -75,7 +75,7 @@ class Volunteer(models.Model):
     active_events = models.ManyToManyField("Event")
     finished_events = models.ManyToManyField("Event")
 
-'''
+
 class Event(models.Model):
     """
     Мероприятие
@@ -125,5 +125,5 @@ class Organizer(models.Model):
     пока что не уверен в необходимости этой таблицы
     """
     title = models.CharField(max_length=100, db_index=True)
-
+'''
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { withTranslation } from "react-i18next"
 import {connect} from "react-redux"
 import PropTypes from 'prop-types'
+import Landing from "./pages/Landing/Landing";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -14,8 +15,7 @@ export default withTranslation()(connect(
   }
 
   routes = [
-    ['^/$', () => <div>simple filling</div>], // Path for / (main page with tasks)
-    // ['^/user', () => <User/>], // Path to /user (user page)
+    ['^/$', () =><Landing/>], // Path for / (main page with tasks)
   ]
 
 

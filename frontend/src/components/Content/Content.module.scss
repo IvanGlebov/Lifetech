@@ -1,0 +1,11 @@
+@import "src/index";
+
+.content {
+  @include for_markup($w:50%, $h:max-content);
+  position: absolute;
+  left: 20px;
+  top: 80px;
+  span, img {
+    display: inline-block;
+  }
+}

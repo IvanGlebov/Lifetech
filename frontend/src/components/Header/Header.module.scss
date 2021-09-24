@@ -1,0 +1,18 @@
+@import "src/index";
+
+.header {
+  @include for_markup();
+  text-align: right;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+.register {
+  @extend %button;
+
+}
+
+.login {
+  @extend %button
+}

@@ -16,7 +16,7 @@ from django.db import models
 """
 
 
-class Members(models.Model):
+class Member(models.Model):
     """
     Человек
     --------
@@ -26,7 +26,7 @@ class Members(models.Model):
     first_name = models.CharField(max_length=50)
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    region = models.ForeignKey("Regions", on_delete=models.PROTECT)
+    region = models.ForeignKey("Region", on_delete=models.PROTECT)
 
 
 class Child(models.Model):
@@ -36,11 +36,11 @@ class Child(models.Model):
     человек - из таблицы MEMEBERS
     детский дом
     """
-    person = models.ForeignKey("Members", on_delete=models.PROTECT)
-    orphanage = models.Model("Orphanages")
+    person = models.ForeignKey("Member", on_delete=models.PROTECT)
+    orphanage = models.Model("Orphanage")
 
 
-class Volunteers(models.Model):
+class Volunteer(models.Model):
     """
     Волонтёр
     -----------
@@ -48,12 +48,12 @@ class Volunteers(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    person = models.ForeignKey("Members", on_delete=models.PROTECT)
-    active_events = models.ManyToManyField("Events")
-    finished_events = models.ManyToManyField("Events")
+    person = models.ForeignKey("Member", on_delete=models.PROTECT)
+    active_events = models.ManyToManyField("Event")
+    finished_events = models.ManyToManyField("Event")
 
 
-class Events(models.Model):
+class Event(models.Model):
     """
     Мероприятие
     ---------------
@@ -67,12 +67,12 @@ class Events(models.Model):
     """
     title = models.CharField(max_length=100)
     status = models.CharField(max_length=50)
-    region = models.ForeignKey("Regions", on_delete=models.PROTECT)
-    organizer = models.ForeignKey("Organizers", on_delete=models.PROTECT)
+    region = models.ForeignKey("Region", on_delete=models.PROTECT)
+    organizer = models.ForeignKey("Organizer", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
-class Regions(models.Model):
+class Region(models.Model):
     """
     Регион
     ------------
@@ -80,10 +80,10 @@ class Regions(models.Model):
     детские дома
     """
     title = models.CharField(max_length=100, db_index=True)
-    orphanages = models.ManyToManyField("Orphanages")
+    orphanages = models.ManyToManyField("Orphanage")
 
 
-class Orphanages(models.Model):
+class Orphanage(models.Model):
     """
     Детский дом
     ---------
@@ -94,7 +94,7 @@ class Orphanages(models.Model):
     children = models.ManyToManyField("Child")
 
 
-class Organizers(models.Model):
+class Organizer(models.Model):
     """
     Площадка
     ----------

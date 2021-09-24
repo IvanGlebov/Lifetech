@@ -92,7 +92,7 @@ class Orphanages(models.Model):
     """
     title = models.CharField(max_length=100)
     children = models.ManyToManyField("Child")
-    
+
 
 class Organizers(models.Model):
     """

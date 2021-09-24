@@ -1,8 +1,8 @@
 import React from "react"
-import style from './Event.module.scss'
+import style from './EventMini.module.scss'
 
 
-export default class Event extends React.Component {
+export default class EventMini extends React.Component {
 
   render() {
     const {id, img, description} = this.props

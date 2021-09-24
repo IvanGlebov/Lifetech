@@ -2,7 +2,7 @@ import {fromJS} from 'immutable'
 
 export const eventsInitialState = fromJS({
   events: {
-    1: {id: 1, img: '', description: 'Описание'},
+    1: {id: 1, img: '', description: 'Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание '},
     2: {id: 2, img: '', description: 'Описание'},
     3: {id: 3, img: '', description: 'Описание'},
     4: {id: 4, img: '', description: 'Описание'},

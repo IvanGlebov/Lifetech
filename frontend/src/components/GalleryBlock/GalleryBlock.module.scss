@@ -2,9 +2,10 @@
 
 .gallery{
   border: $markup;
-  @include sample($l:unset,$r:$indent*2, $t:80px);
-  @include size($w:30%, $h:unset);
+  @include sample($l:unset,$r:$indent*5, $t:80px);
+  @include size($w:30%, $h:80%);
   text-align: center;
+  max-width: 300px;
   h4 {
     @extend %zero_indents;
     letter-spacing: 0.3em;

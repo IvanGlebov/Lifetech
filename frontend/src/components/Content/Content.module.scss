@@ -2,13 +2,13 @@
 
 .content {
   border: $markup;
-  @include sample($l:$indent*3, $t:80px);
+  @include sample($l:$indent*6, $t:80px);
   @include size($w:63%, $h:unset);
   text-align: center;
   span, img {
     display: inline-block;
   }
-  h4 {
+  h3 {
     @extend %zero_indents;
   }
   img {

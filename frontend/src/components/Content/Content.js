@@ -13,9 +13,9 @@ export default class Content extends React.Component {
     const {people, past, future} = this.state
     return (
       <div className={style.content}>
-        <h4>Тебя приветствует платформа добрых дел!
+        <h3>Тебя приветствует платформа добрых дел!
           Мы объединяем тех, кто нуждается в помощи, с тем, кто может помочь!
-        </h4>
+        </h3>
         <img src={img} alt={'img'}/>
         <span>
           Нас уже <b>{people}</b>,

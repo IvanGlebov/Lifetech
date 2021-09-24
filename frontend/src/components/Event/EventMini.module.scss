@@ -5,7 +5,7 @@
   margin: 5px;
   box-shadow: $shadow;
   float: left;
-  width: 250px;
+  width: 290px;
 }
 
 .event:hover {
@@ -19,6 +19,10 @@
 }
 
 .desc {
-  padding: 15px;
+  padding: 25px;
   text-align: center;
+  overflow: hidden;
+  height: 25px;
+  white-space: nowrap; /* Запрещаем перенос строк */
+  text-overflow: ellipsis; /* Добавляем многоточие */
 }

@@ -13,7 +13,7 @@ $radius: 10px; //blocks border radius
 $indent: 10px; //mini-indents for icons and text in blocks
 
 // shadow and borders
-$markup: none; //for markup layout 1px #000000 dotted
+$markup: 1px #000000 dotted; //for markup layout 1px #000000 dotted
 $shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
 //flex settings
@@ -31,8 +31,12 @@ body {
   background-color: $back;
   margin: 0;
   font-family: $family;
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: $color
+}
+html, body {
+  scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin;  /* толщина */
 }
 
 // size of block
@@ -52,6 +56,20 @@ body {
   border: none;
   font-family: $family;
   font-weight: bold;
+}
+
+// button with icon
+%icon {
+  @include size($w:40px, $h:40px);
+  border: $markup;
+  text-align: center;
+  color: $pink;
+  background: none;
+  padding: 0;
+  i {
+    font-size: 35px;
+  }
+  margin: $indent;
 }
 
 // make indents = 0

@@ -1,7 +1,7 @@
 import React from "react"
 import style from './Gallery.module.scss'
 import {connect} from "react-redux";
-import Event from "../../components/Event/Event";
+import EventMini from "../../components/Event/EventMini";
 import * as events from "events";
 import img from '@images/sample_event.svg'
 import Line from "../../components/Line/Line";
@@ -19,10 +19,10 @@ export default connect(
     return (
       <div className={style.gallery}>
         <Line />
-        <h1>Галерея мероприятий</h1>
-        <div className={style.photos}>
+        <h2>Галерея мероприятий</h2>
+        <div>
           {
-            Object.values(events).map(e => (<Event
+            Object.values(events).map(e => (<EventMini
                 key={e.id}
                 id={e.id}
                 img={img}

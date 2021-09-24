@@ -23,14 +23,5 @@
   @include button();
 }
 .person {
-  @include size($w:40px, $h:40px);
-  border: $markup;
-  text-align: center;
-  color: $pink;
-  background: none;
-  padding: 0;
-  i {
-    font-size: 35px;
-  }
-  margin: $indent;
+  @extend %icon
 }

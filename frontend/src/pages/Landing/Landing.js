@@ -2,7 +2,7 @@ import React from "react"
 import style from './Landing.module.scss'
 import Header from "@components/Header/Header";
 import Content from "@components/Content/Content";
-import Photos from "@components/Photos/Photos";
+import Photos from "@components/Gallery/Gallery";
 
 
 export default class Landing extends React.Component {
@@ -10,7 +10,7 @@ export default class Landing extends React.Component {
   render() {
     return (
       <div className={style.landing}>
-        <Header/>
+        <Header />
         <Content/>
         <Photos />
       </div>

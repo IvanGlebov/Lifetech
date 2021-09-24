@@ -1,9 +1,0 @@
-@import "src/index";
-
-.photos {
-  @include for_markup($w:40%, $h:max-content);
-  text-align: right;
-  position: absolute;
-  top:80px;
-  right: 20px;
-}

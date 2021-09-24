@@ -1,11 +1,20 @@
 @import "src/index";
 
 .content {
-  @include for_markup($w:50%, $h:max-content);
+  border: $markup;
   position: absolute;
-  left: 20px;
+  left:10px;
   top: 80px;
+  text-align: center;
+  width: 60%;
   span, img {
     display: inline-block;
+  }
+  h4 {
+    @extend %zero_indents;
+  }
+  img {
+    width: 300px;
+    object-fit: cover;
   }
 }

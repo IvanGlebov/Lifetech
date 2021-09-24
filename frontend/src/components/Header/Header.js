@@ -7,8 +7,8 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className={style.header}>
-        <button className={style.register}>зарегистрироваться</button>
         <button className={style.login}>войти</button>
+        <button className={style.register}>зарегистрироваться</button>
       </div>
     )
   }

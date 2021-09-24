@@ -1,0 +1,14 @@
+@import "src/index";
+
+.gallery{
+  border: $markup;
+  text-align: center;
+  position: absolute;
+  top:80px;
+  right:$indent*2;
+  width: 35%;
+  h4 {
+    @extend %zero_indents;
+    letter-spacing: 0.3em;
+  }
+}

@@ -9,7 +9,7 @@ $back: #ffffff;
 // sizes
 $heading-size: 48px; //headings
 $radius: 10px; //blocks border radius
-$indent: 3px; //mini-indents for icons and text in blocks
+$indent: 10px; //mini-indents for icons and text in blocks
 
 // shadow and borders
 $markup: 1px #000000 dotted; //for markup layout 1px #000000 dotted
@@ -34,17 +34,18 @@ body {
   color: $color
 }
 
-@mixin for_markup ($w:100%, $h:60px) {
-  border: $markup;
-  width: $w; height: $h;
-}
 
-%button {
+@mixin button($w:140px) {
   background-color: #FF4459;
   height: 40px;
-  width: 140px;
-  margin: 10px;
+  width: $w;
+  margin: $indent;
   border-radius: $radius;
   color: #FFFEFE;
   border: none;
+  font-family: $family;
+  font-weight: bold;
+}
+%zero_indents {
+  padding: 0; margin: 0;
 }

@@ -17,12 +17,12 @@ export default class Content extends React.Component {
           Мы объединяем тех, кто нуждается в помощи, с тем, кто может помочь!
         </h3>
         <img src={img} alt={'img'}/>
-        <span>
+        <div>
           Нас уже <b>{people}</b>,
           мы провели <b>{past}</b>,
           сейчас реализуется <b>{future}</b> мероприятий!
           Стань одним из нас!
-        </span>
+        </div>
 
       </div>
     )

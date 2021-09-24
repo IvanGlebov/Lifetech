@@ -26,6 +26,7 @@ export default connect(
                 key={e.id}
                 id={e.id}
                 img={img}
+                name={e.name}
                 description={e.description}
 
               />

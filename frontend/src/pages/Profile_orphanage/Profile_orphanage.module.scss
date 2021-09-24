@@ -5,9 +5,14 @@
  display: flex;
   .content {
     margin-top: 80px;
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    grid-template-rows: 56px 1fr;
+    grid-template-areas: "name name" "act photo";
   }
   .name {
     display: flex;
+    grid-area: name;
   }
   h2 {
     @extend %zero_indents
@@ -48,6 +53,7 @@
   button {
     display: inline-block;
   }
+  grid-area: act;
 }
 
 .action{
@@ -56,4 +62,11 @@
   background: #FF4459;
   border-radius: 5px;
   margin: $indent;
+}
+
+.photogal{
+  grid-area: photo;
+  width: 1030px;
+  height: 651px;
+  background: #D6D6D6;
 }

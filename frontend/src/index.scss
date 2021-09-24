@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+$color: #FFF3ED; //text color
+$blocks-back: #FFFEFE; //background for blocks
+$back:#6D5F69;
+$name-size: 48px; //logoName
+$radius: 20px; //blocks border radius
+$shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+$bl-height: 50px; //height for blocks
+$bl-width: 50px; //width for blocks
+$markup: none; //for markup layout 1px #ffffff dotted
+$spb: space-between; //reduction
+$spe: space-evenly; //reduction
+$indent: 3px; //mini-indents for icons and text in blocks
+body {
+  background-color: $back;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  color: $color
+}
+
+%button {
+  width: $bl-width;
+  height: $bl-height;
+  border-radius: $radius;
+  border: none;
+  text-align: center;
+
+}
+
+%white_button {
+  background: $blocks-back;
+  box-shadow: $shadow;
+  padding-top: 4px;
+  margin-left: 10px;
+  font-size: 1em;
+}
+
+%dark_button {
+  color: $color;
+  background: none;
+}
+
+%flex_settings_row {
+  display: flex;
+  flex-direction: row;
+}
+
+%init_block {
+  height: $bl-height;
+  border-radius: $radius;
+  background-color: $blocks-back;
+  color: black;
+  box-shadow: $shadow;
+
+  span {
+    margin-bottom: $indent;
+  }
+}
+
+%icon_in_block {
+  @extend %button;
+  box-shadow: none;
+  margin: 0 0 $indent 0;
+  padding: 10px 0;
+  height: $bl-height - 20px;
+  display: inline-block;
+  align-items: center;
+}
+
+@mixin block($where:start) {
+  i {
+    font-size: 1.2em;
+  }
+  @extend %init_block;
+  @extend %flex_settings_row;
+  align-items: center;
+  justify-content: $where;
+}

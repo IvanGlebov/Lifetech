@@ -2,11 +2,9 @@
 
 .content {
   border: $markup;
-  position: absolute;
-  left:10px;
-  top: 80px;
+  @include sample($l:$indent*3, $t:80px);
+  @include size($w:63%, $h:unset);
   text-align: center;
-  width: 60%;
   span, img {
     display: inline-block;
   }
@@ -14,7 +12,7 @@
     @extend %zero_indents;
   }
   img {
-    width: 300px;
+    width: 500px;
     object-fit: cover;
   }
 }

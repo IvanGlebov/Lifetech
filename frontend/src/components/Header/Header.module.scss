@@ -2,14 +2,18 @@
 
 .header {
   border: $markup;
-  height: 60px;
-  text-align: right;
-  background: linear-gradient(rgb(255, 255, 255) 80%, rgba(255, 255, 255, 0.8));
-  position: fixed;
-  width: 100%;
-  top:0;
-  left: 0;
-  z-index: 2;
+  @include size($w:100%, $h:60px);
+  @include sample($l:0, $t:0, $p: fixed, $z:2);
+  @include flex-settings();
+  box-shadow: $shadow;
+  background-color: $back;
+  div {
+    border: $markup;
+  }
+  form {
+    display: flex;
+  }
+
 }
 .register {
   @include button($w:200px);
@@ -17,4 +21,16 @@
 
 .login {
   @include button();
+}
+.person {
+  @include size($w:40px, $h:40px);
+  border: $markup;
+  text-align: center;
+  color: $pink;
+  background: none;
+  padding: 0;
+  i {
+    font-size: 35px;
+  }
+  margin: $indent;
 }

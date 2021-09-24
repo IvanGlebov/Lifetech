@@ -11,6 +11,7 @@ export default class Landing extends React.Component {
     return (
       <div className={style.landing}>
         <Header />
+        <div className={style.line}> </div>
         <Content/>
         <Photos />
       </div>

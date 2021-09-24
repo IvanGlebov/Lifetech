@@ -2,7 +2,8 @@ import React from 'react'
 import { withTranslation } from "react-i18next"
 import {connect} from "react-redux"
 import PropTypes from 'prop-types'
-import Landing from "./pages/Landing/Landing";
+import Landing from "@pages/Landing/Landing";
+import Profile_orphanage from "@pages/Profile_orphanage/Profile_orphanage";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -16,6 +17,7 @@ export default withTranslation()(connect(
 
   routes = [
     ['^/$', () =><Landing/>], // Path for / (main page with tasks)
+    ['^/orphanage', () =><Profile_orphanage/>]
   ]
 
 

@@ -14,7 +14,8 @@ export default class Content extends React.Component {
     return (
       <div className={style.content}>
         <h4>Тебя приветствует платформа добрых дел!
-          Мы объединяем тех, кто нуждается в помощи, с тем, кто может помочь!</h4>
+          Мы объединяем тех, кто нуждается в помощи, с тем, кто может помочь!
+        </h4>
         <img src={img} alt={'img'}/>
         <span>
           Нас уже <b>{people}</b>,

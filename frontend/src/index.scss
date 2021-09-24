@@ -5,6 +5,7 @@
 $color: #000000; //text color
 $blocks-back: #FFFEFE; //background for blocks
 $back: #ffffff;
+$pink: #FF4459;
 
 // sizes
 $heading-size: 48px; //headings
@@ -23,7 +24,7 @@ $spe: space-evenly; //reduction
 $background_modal: 'background_modal.svg';
 
 //font-family
-$family:'Montserrat', sans-serif;
+$family: 'Montserrat', sans-serif;
 
 //body
 body {
@@ -34,7 +35,13 @@ body {
   color: $color
 }
 
+// size of block
+@mixin size($w:0, $h:0) {
+  width: $w;
+  height: $h;
+}
 
+// init pink button
 @mixin button($w:140px) {
   background-color: #FF4459;
   height: 40px;
@@ -46,6 +53,24 @@ body {
   font-family: $family;
   font-weight: bold;
 }
+
+// make indents = 0
 %zero_indents {
-  padding: 0; margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+// flex settings
+@mixin flex-settings($j:right) {
+  display: flex;
+  justify-content: $j;
+}
+
+// absolute blocks
+@mixin sample($t:0,$r:unset,$l:0,$p:absolute, $z:0) {
+  position: $p;
+  left: $l;
+  top: $t;
+  right: $r;
+  z-index: $z;
 }

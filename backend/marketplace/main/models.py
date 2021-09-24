@@ -31,14 +31,14 @@ class Member(models.Model):
     first_name = models.CharField(max_length=50)
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    region = models.ForeignKey("Region", on_delete=models.PROTECT)
+    region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
 
 
 class Child(models.Model):
     """
     Воспитанник детдома
     -----------------
-    человек - из таблицы MEMEBERS
+    человек - из таблицы MEMBERS
     детский дом
     """
     person = models.ForeignKey("Member", on_delete=models.PROTECT)
@@ -63,6 +63,9 @@ class Event(models.Model):
     Мероприятие
     ---------------
     название
+    описание
+    краткое_описание
+    картинка
     статус
     регион
     площадка

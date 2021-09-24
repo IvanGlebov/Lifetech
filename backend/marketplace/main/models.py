@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 """
 РОЛИ:
 детский дом
@@ -15,6 +16,10 @@ from django.db import models
 детский дом
 """
 
+
+class BasicUser(AbstractUser):
+    pass
+    # add additional fields in here
 
 class Member(models.Model):
     """
@@ -37,7 +42,7 @@ class Child(models.Model):
     детский дом
     """
     person = models.ForeignKey("Member", on_delete=models.PROTECT)
-    orphanage = models.Model("Orphanage")
+    orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
 class Volunteer(models.Model):
@@ -50,7 +55,7 @@ class Volunteer(models.Model):
     """
     person = models.ForeignKey("Member", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
-    finished_events = models.ManyToManyField("Event")
+
 
 
 class Event(models.Model):
@@ -69,7 +74,6 @@ class Event(models.Model):
     status = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT)
     organizer = models.ForeignKey("Organizer", on_delete=models.PROTECT)
-    orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
 class Region(models.Model):
@@ -91,7 +95,6 @@ class Orphanage(models.Model):
     подконтрольные дети
     """
     title = models.CharField(max_length=100)
-    children = models.ManyToManyField("Child")
 
 
 class Organizer(models.Model):

@@ -1,8 +1,8 @@
 import React from "react"
-import style from './Gallery.module.scss'
+import style from './GalleryBlock.module.scss'
 
 
-export default class Gallery extends React.Component {
+export default class GalleryBlock extends React.Component {
 
   render() {
     return (

@@ -1,9 +1,5 @@
 @import "src/index";
 
 .landing {
-  .line {
-    background-color: $pink;
-    @include size($w:25px, $h:100%);
-    @include sample($l:0, $t:0, $z:1);
-  }
+
 }

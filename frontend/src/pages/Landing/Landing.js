@@ -2,7 +2,8 @@ import React from "react"
 import style from './Landing.module.scss'
 import Header from "@components/Header/Header";
 import Content from "@components/Content/Content";
-import Photos from "@components/Gallery/Gallery";
+import GalleryBlock from "@components/GalleryBlock/GalleryBlock";
+import Line from "../../components/Line/Line";
 
 
 export default class Landing extends React.Component {
@@ -11,9 +12,9 @@ export default class Landing extends React.Component {
     return (
       <div className={style.landing}>
         <Header />
-        <div className={style.line}> </div>
+        <Line/>
         <Content/>
-        <Photos />
+        <GalleryBlock />
       </div>
     )
   }

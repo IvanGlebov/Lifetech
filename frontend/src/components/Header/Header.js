@@ -14,14 +14,12 @@ export default connect(
     return (
       <div className={style.header}>
         {authorized ?
-
           <form>
             <button className={style.person}>
               <i className="bi bi-person-circle"/>
             </button>
             <button className={style.register}>выйти</button>
           </form>
-
           :
           <form>
             <button className={style.login}>войти</button>

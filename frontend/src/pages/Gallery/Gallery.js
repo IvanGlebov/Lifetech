@@ -28,7 +28,7 @@ export default connect(
                 img={img}
                 name={e.name}
                 description={e.description}
-
+                right={false}
               />
             ))
           }

@@ -4,12 +4,9 @@
   border: $markup;
   overflow: auto;
   text-align: center;
-  height: 500px;
-  scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
-  scrollbar-width: thin;  /* толщина */
-
   @include size($w:360px, $h:80%);
-  h4 {
+  min-height: 360px;
+  .heading {
     letter-spacing: 0.3em;
   }
 }

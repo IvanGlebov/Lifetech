@@ -2,8 +2,8 @@
 
 .content {
   border: $markup;
-
-  @include size($w:70%, $h:unset);
+  padding: $indent/2;
+  @include size($w:75%, $h:unset);
   text-align: center;
   span, img {
     display: inline-block;

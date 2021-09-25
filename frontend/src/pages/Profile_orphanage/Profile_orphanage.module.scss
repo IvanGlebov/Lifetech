@@ -1,9 +1,10 @@
 @import "src/index";
 
 .orphanage {
- margin-left: 40px;
+ margin-left:$indent*4;
  display: flex;
   .content {
+    padding: $indent*2 $indent*4;
     margin-top: 80px;
     display: grid;
     grid-template-columns: 520px 1fr;
@@ -53,6 +54,9 @@
   button {
     display: inline-block;
   }
+  button:active, button:focus {
+    outline: none;
+  }
   grid-area: act;
 }
 
@@ -62,6 +66,7 @@
   background: #FF4459;
   border-radius: 5px;
   margin: $indent;
+  color: white;
 }
 
 .photogal{

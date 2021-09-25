@@ -15,14 +15,15 @@ export default connect(
     const {events} = this.props
     return (
       <div className={style.gallery}>
-        <h4>Мероприятия</h4>
+        <h4 className={style.heading}>Топ мероприятий</h4>
         {
-          Object.values(events).map(e => (<EventMini
+          Object.values(events).slice(0, 3).map(e => (<EventMini
               key={e.id}
               id={e.id}
               img={img}
               name={e.name}
               description={e.description}
+              right={true}
             />
           ))
         }

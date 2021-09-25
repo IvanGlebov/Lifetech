@@ -1,0 +1,55 @@
+@import "src/index";
+
+.header {
+  border: $markup;
+  @include size($w: 100%, $h: 60px);
+  @include sample($l: 0, $t: 0, $p: fixed, $z: 2);
+  @include flex-settings();
+  box-shadow: $shadow;
+  background-color: $back;
+  justify-content: $spb;
+
+  form, .hot_buttons {
+    display: flex;
+  }
+
+  .login, .events {
+    @include button();
+
+    :hover {
+      background-color: black;
+    }
+  }
+
+  .person, .home {
+    @extend %icon
+  }
+
+  .register {
+    @include button($w: 200px);
+  }
+
+  .events {
+    background-color: $blue;
+  }
+
+  .home {
+    color: $blue;
+  }
+
+  .register:hover, .login:hover {
+    @extend %hover_pink_button;
+  }
+
+  .events:hover {
+    @extend %hover_blue_button
+  }
+
+  .home:hover {
+    @extend %hover_blue_icon
+  }
+
+  .person:hover {
+  @extend %hover_pink_icon }
+}
+

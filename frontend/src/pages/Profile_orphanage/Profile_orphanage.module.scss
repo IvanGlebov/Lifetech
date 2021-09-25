@@ -1,0 +1,80 @@
+@import "src/index";
+
+.orphanage {
+ margin-left:$indent*4;
+ display: flex;
+  .content {
+    padding: $indent*2 $indent*4;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    grid-template-rows: 56px 1fr;
+    grid-template-areas: "name name" "act photo";
+  }
+  .name {
+    display: flex;
+    grid-area: name;
+  }
+  h2 {
+    @extend %zero_indents
+  }
+}
+
+.right{
+  display: flex;
+}
+
+.info{
+  @include size($w:40px, $h:40px);
+  border: $markup;
+  text-align: center;
+  color: #D6D6D6;
+  background: none;
+  padding: 0;
+  i {
+    font-size: 35px;
+  }
+  margin-left: $indent;
+  margin-right: $indent;
+
+}
+
+.house{
+  @extend %icon
+}
+
+.register {
+  @include button($w:200px);
+}
+
+.actions{
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  grid-gap: 20px;
+  button {
+    display: inline-block;
+    font-size: 30px;
+    float: bottom;
+  }
+  button:active, button:focus {
+    outline: none;
+  }
+  grid-area: act;
+}
+
+.action{
+  width: 200px;
+  height: 200px;
+  background: #FF4459;
+  border-radius: 5px;
+  margin: $indent;
+  color: white;
+}
+
+.photogal{
+  grid-area: photo;
+  width: 1030px;
+  height: 650px;
+  background: #D6D6D6;
+}

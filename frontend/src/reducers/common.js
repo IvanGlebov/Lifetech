@@ -1,6 +1,8 @@
 export const types = {
   USER__FETCH_INFO: "USER__FETCH_INFO",
-  USER__REPORT_ERROR: "USER__REPORT_ERROR"
+  USER__REPORT_ERROR: "USER__REPORT_ERROR",
+
+  EVENTS__FETCH_INFO: "EVENTS__FETCH_INFO"
 }
 
 export const reportError = (error) => {

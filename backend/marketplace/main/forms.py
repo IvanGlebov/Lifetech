@@ -18,7 +18,7 @@ class BasicUserChangeForm(UserChangeForm):
 
 
 class MemberForm(forms.Form):
-    first_name = forms.CharField(max_length=50)
-    second_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
-    region = forms.IntegerField()
+
+    class Meta:
+        model = Member
+        fields = ['first_name', 'second_name', 'last_name', 'region']

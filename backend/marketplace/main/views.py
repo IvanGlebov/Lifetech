@@ -9,11 +9,15 @@ def try_response(request):
     data = serialize("python", Member.objects.all())
     return JsonResponse(data, safe=False)
 
+
 def try_add_member(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = MemberForm(request.POST)
-        member = Member.objects.create(**form.cleaned_data)
+        print(form)
+        member = Member.objects.create(form)
         return redirect(member)
+    data = serialize("python", Member.objects.all())
+    return JsonResponse(data, safe=False)
 
 
 def try_index(request):

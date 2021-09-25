@@ -12,8 +12,9 @@ class BasicUserAdmin(UserAdmin):
     list_display = ['email', 'username',]
 
 admin.site.register(BasicUser, BasicUserAdmin)
-admin.site.register(Member)
 admin.site.register(Event)
+admin.site.register(Group)
 admin.site.register(Child)
+admin.site.register(Region)
 admin.site.register(Volunteer)
 admin.site.register(Orphanage)

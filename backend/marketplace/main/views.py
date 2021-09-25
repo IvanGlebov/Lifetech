@@ -9,47 +9,16 @@ from django.core.serializers import serialize
 """
 отдать все мероприятия
 отдать мероприятие по id
-отдать детский дом по id
-отдать пользователя по id
-!!! создать по 1 пользователю
+создать аккаунт ребенка!!! создать по 1 пользователю
 """
-
-# Create your views here.
-def try_response(request):
-    data = serialize("python", Member.objects.all())
-    return JsonResponse(data, safe=False)
-
-
-def try_index(request):
-    return render(request, 'main/index.html')
-
-
-def add_task(request):
-    parsed = json.loads(request.body.decode())
-    # print(parsed)
-
-    new_task = Member(name=parsed['name'])
-    new_task.description = parsed['description']
-
-    new_task.save()
-    return JsonResponse({
-        'status': 'task-added'
-    })
-
-
-def list_tasks(request, page=0):
-    members = Member.objects.all()
-    page_size = 24
-    return JsonResponse({
-        'member': dict((member.id, member.to_short_dict()) for member in members),
-    })
-
 
 #------------------------------------------Views to finish-----------------------------------------
 
 
 def get_events(request):
-    data = serialize("python", Event.objects.all())
+    data = {'events': serialize("python", Event.objects.all()),
+            'status': 'events-fetched-correctly'
+            }
     return JsonResponse(data, safe=False)
 
 
@@ -66,13 +35,53 @@ def get_event(request):
     return JsonResponse(data, safe=False)
 
 
-
 def register_basic_user(request):
     parsed = json.loads(request.body.decode)
-    username = parsed.username
-    email = parsed.email
-    password = parsed.password
-    user = BasicUser.objects.create_user(username=username,
-                                 email=email,
-                                 password=password
-                                         )
+    first_name = parsed.first_name
+    second_name = parsed.second_name
+    last_name = parsed.last_name
+    region = parsed.region
+    if parsed.user_group == "Волонтёр":
+        user_group = parsed.user_group
+    elif parsed.user_group == "Сотрудник":
+        try:
+            user_group = Orphanage.objects.get(parsed.user_group)
+        except:
+            return JsonResponse({
+                'exception': 'Неверный ключ организации, попробуйте снова'
+            })
+    user = BasicUser.objects.create_user(
+        first_name=first_name,
+        second_name=second_name,
+        last_name=last_name,
+        region=region,
+        user_group=user_group
+    )
+    return JsonResponse({
+        'status': 'registration done!'
+    })
+
+
+def register_ward(request):
+    """
+
+    :param request: first, second, last names; region, orphanage_id
+    :return:
+    """
+    parsed = json.loads(request.body.decode)
+    first_name = parsed.first_name
+    second_name = parsed.second_name
+    last_name = parsed.last_name
+    region = parsed.region
+    orphanage = Orphanage.objects.get(parsed.orphanage_id)
+    user_group = "Подопечный"
+    user = BasicUser.objects.create_user(
+        first_name=first_name,
+        second_name=second_name,
+        last_name=last_name,
+        region=region,
+        user_group=user_group
+    )
+    return JsonResponse({
+        'status': 'registration done!'
+    })

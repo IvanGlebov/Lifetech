@@ -49,28 +49,6 @@ class Group(models.Modal):
         }
 
 
-class Member(models.Model):
-    """
-    Человек
-    --------
-    ФИО
-    регион
-    """
-    first_name = models.CharField(max_length=50)
-    second_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
-
-    def to_short_dict(self):
-        return {
-            'id': self.id,
-            'first_name': self.first_name,
-            'second_name': self.second_name,
-            'last_name': self.last_name,
-            'region': self.region
-        }
-
-
 class Child(models.Model):
     """
     Воспитанник детдома
@@ -78,7 +56,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    person = models.ForeignKey("Member", on_delete=models.PROTECT)
+    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
@@ -90,7 +68,7 @@ class Volunteer(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    person = models.ForeignKey("Member", on_delete=models.PROTECT)
+    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
 
 
@@ -109,7 +87,6 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     status = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT)
-    organizer = models.ForeignKey("Organizer", on_delete=models.PROTECT)
 
 
 class Region(models.Model):
@@ -135,15 +112,9 @@ class Orphanage(models.Model):
     Детский дом
     ---------
     название
-    подконтрольные дети
+    подконтрольные дети (?)
     """
     title = models.CharField(max_length=100)
+    secret_key = models.CharField(max_length=50, unique=True)
 
 
-class Organizer(models.Model):
-    """
-    Площадка
-    ----------
-    пока что не уверен в необходимости этой таблицы
-    """
-    title = models.CharField(max_length=100, db_index=True)

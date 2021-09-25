@@ -12,7 +12,7 @@ from .helpers import LoginSucceedResponse
 def info(request):
     print(request.user)
     if not request.user.is_authenticated:
-        return JsonResponse({'status': 'user-is-not-authenticated'})
+        return JsonResponse({'status': 'users-is-not-authenticated'})
 
     user: User = request.user
     return JsonResponse(user.to_dict())
@@ -78,7 +78,7 @@ def sign_up(request):
     user = User(email=email)
     user.username = email
     user.last_name = last_name
-    # user.name = name
+    # users.name = name
     user.set_password(password)
     user.save()
 

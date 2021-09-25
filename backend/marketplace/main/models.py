@@ -40,7 +40,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    #person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
@@ -52,7 +52,7 @@ class Volunteer(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    #person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
 
 

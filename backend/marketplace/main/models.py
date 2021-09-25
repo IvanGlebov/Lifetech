@@ -36,7 +36,7 @@ class BasicUser(AbstractUser):
         }
 
 
-class Group(models.Modal):
+class Group(models.Model):
     # Voulonteer
     # Child
     # Orphanage

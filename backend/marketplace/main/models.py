@@ -23,7 +23,7 @@ class BasicUser(AbstractUser):
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
-    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, blank=True)
+    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, null=True)
 
     def to_short_dict(self):
         return {
@@ -95,6 +95,14 @@ class Event(models.Model):
     status = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT)
 
+    def to_short_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'status': self.status,
+            'region': self.region.to_short_dict()
+        }
+
 
 class Region(models.Model):
     """
@@ -104,7 +112,7 @@ class Region(models.Model):
     детские дома
     """
     title = models.CharField(max_length=100, db_index=True)
-    orphanages = models.ManyToManyField("Orphanage")
+    orphanages = models.ManyToManyField("Orphanage", blank=True)
 
     def to_short_dict(self):
         return {

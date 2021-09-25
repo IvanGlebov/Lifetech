@@ -23,7 +23,7 @@ class BasicUser(AbstractUser):
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
-    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, blank=False)
+    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, blank=True)
 
     def to_short_dict(self):
         return {
@@ -40,6 +40,8 @@ class BasicUser(AbstractUser):
 
 class CustomUserManager(UserManager):
     pass
+
+
 
 class Group(models.Model):
     # Voulonteer

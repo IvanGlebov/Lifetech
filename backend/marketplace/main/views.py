@@ -16,10 +16,10 @@ from django.core.serializers import serialize
 
 
 def get_events(request):
-    data = {'events': serialize("python", Event.objects.all()),
-            'status': 'events-fetched-correctly'
-            }
-    return JsonResponse(data, safe=False)
+    events = Event.objects.all()
+    return JsonResponse({
+        'events': dict((event.id, event.to_short_dict()) for event in events)
+    })
 
 
 def get_event(request):

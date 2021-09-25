@@ -6,6 +6,7 @@ $color: #000000; //text color
 $blocks-back: #FFFEFE; //background for blocks
 $back: #ffffff;
 $pink: #FF4459;
+$blue: #4CA0EE;
 
 // sizes
 $heading-size: 48px; //headings
@@ -57,6 +58,7 @@ html, body {
   border: none;
   font-family: $family;
   font-weight: bold;
+  font-size: 16px;
 }
 
 // button with icon
@@ -96,8 +98,21 @@ html, body {
   z-index: $z;
 }
 
+//hover
 %hover_back {
   background-color: #f3eded;
+}
+%hover_pink_button {
+  background-color: #9b162c
+}
+%hover_blue_button {
+  background-color: #32699d
+}
+%hover_blue_icon {
+  color: #32699d
+}
+%hover_pink_icon {
+  color: #9b162c
 }
 
 // for modals

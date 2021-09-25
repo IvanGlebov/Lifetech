@@ -9,6 +9,8 @@ import Event from '@components/Event/Event'
 import Login from "@pages/Login/Login";
 import Register from "@pages/Register/Register";
 import {doFetchEvents} from "./reducers/eventsActions";
+import Profile_child from "@pages/Profile_child/Profile_child";
+import {Header} from "./components";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -31,7 +33,8 @@ export default withTranslation()(connect(
 
   routes = [
     ['^/$', () => <Landing/>], // Path for / (main page with tasks)
-    ['^/orphanage', () => <Profile_orphanage/>],
+    ['^/profile-o', () => <Profile_orphanage/>],
+    ['^/profile-c', () => <Profile_child/>],
     ['^/gallery', () => <Gallery/>],
     ['^/event', () => <Event/>] ,//
     ['^/login', () => <Login/>],
@@ -46,6 +49,7 @@ export default withTranslation()(connect(
     return (
       <div>
         {/* place for sidebar and navbar */}
+        <Header />
         {this.route(this.props.location)}
         {/* place for notifications component */}
       </div>

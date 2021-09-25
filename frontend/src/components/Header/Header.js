@@ -10,7 +10,8 @@ export default connect(
   (dispatch) => ({
     redirectToLogin: () => dispatch(push('/login')),
     redirectToRegister: () => dispatch(push('/register')),
-
+    redirectToMain: () => dispatch(push('/')),
+    redirectToEvents: () => dispatch(push('/gallery'))
   })
 )
 (class Header extends React.Component {
@@ -19,6 +20,14 @@ export default connect(
     const {authorized} = this.props
     return (
       <div className={style.header}>
+        <div className={style.hot_buttons}>
+          <form>
+            <button onClick={this.props.redirectToMain} className={style.home}>
+              <i className="bi bi-house-door-fill"/>
+            </button>
+            <button onClick={this.props.redirectToEvents} className={style.events}>Мероприятия</button>
+          </form>
+        </div>
         {authorized
           ? <form>
             <button className={style.person}>

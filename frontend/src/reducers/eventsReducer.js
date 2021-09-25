@@ -32,7 +32,7 @@ export const eventsInitialState = fromJS({
 })
 
 export const eventsReducer = (state = {}, action) => {
-  if(action.type.startsWith('USER__')) {
+  // if(action.type.startsWith('USER__')) {
     switch (action.type) {
       case types.EVENTS__FETCH_INFO:
         return state
@@ -41,5 +41,7 @@ export const eventsReducer = (state = {}, action) => {
       default:
         return state
     }
-  }
+  // } else {
+  //   return state
+  // }
 }

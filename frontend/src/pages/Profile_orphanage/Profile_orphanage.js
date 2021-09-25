@@ -23,7 +23,6 @@ export default class Profile_orphanage extends React.Component {
     return (
       <div className={style.orphanage}>
         <Line/>
-        <Header/>
 
         <div className={style.content}>
 

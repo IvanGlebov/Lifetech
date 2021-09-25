@@ -44,6 +44,7 @@ export default class Profile_orphanage extends React.Component {
 
           <div className={style.photogal}>
 
+
           </div>
 
         </div>

@@ -2,12 +2,13 @@
 
 
 .event1, .event2 {
+  background-color:$back ;
   margin: $indent;
   box-shadow: $shadow;
   width: 330px;
   float: left;
   img {
-    @include size($w:100%, $h:100px);
+    @include size($w:100%, $h:120px);
     object-fit: cover;
   }
   h4 {
@@ -15,17 +16,17 @@
     border: $markup;
   }
   .desc {
-    padding: $indent/2;
+    padding: $indent*2;
   }
 }
 .event1 {
   width: 95%;
 }
 .event2 {
-  width: 330px;
+  width: 400px;
 }
 .event1:hover, .event2:hover {
-  background-color: #f3eded;
+  @extend %hover_back
 }
 
 .desc , .desc h4{
@@ -34,4 +35,5 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding:$indent/2
 }

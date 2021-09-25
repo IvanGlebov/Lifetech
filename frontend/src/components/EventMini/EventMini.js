@@ -14,9 +14,6 @@ export default connect(
   })
 )
 (class EventMini extends React.Component {
-    changePage = () => {
-      location.replace('/event')
-    }
 
     render() {
       const {id, img, description, name, right} = this.props

@@ -1,18 +1,21 @@
 @import "src/index";
 
-.content {
+.content1, .content2 {
   border: $markup;
   padding: $indent/2;
-  @include size($w:75%, $h:unset);
+  @include size($w:70%, $h:unset);
   text-align: center;
   span, img {
     display: inline-block;
-  }
-  h3 {
-
   }
   img {
     width: 700px;
     object-fit: cover;
   }
+  img:hover{
+    box-shadow: $shadow;
+  }
+}
+.content2 img {
+  background-color: #fff000;
 }

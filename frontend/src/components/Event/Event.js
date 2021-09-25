@@ -7,7 +7,6 @@ import Line from "../Line/Line";
 
 export default connect(
   (store) => ({
-    // events: store.events.getIn(['events']).filter(v.id => )
     eventID: new URLSearchParams(store.router.location.query).get('eventid'),
     events: store.events.getIn(['events']).toJS()
   }),
@@ -23,19 +22,22 @@ export default connect(
         event = item
     })
     return (
-      <div className={style.event_page}>
+      <>
         <Line/>
         <div className={style.event}>
-          <h2> {event.name}</h2>
-          <h3>Регион: {event.region}</h3>
-          {event.volunteers.length !== 0
-            ? <h3>Волонтеры: {event.volunteers.map(u => (<li>{u}</li>))}</h3>
-            : <> </>
-          }
-          <img src={img} alt={'img'}/>
-          <div className={style.desc}>{event.description}</div>
+          <div>
+            <h2> {event.name}</h2>
+            <h3>Регион: {event.region}</h3>
+            {event.volunteers.length !== 0
+              ? <h3>Волонтеры: {event.volunteers.map(u => (<li>{u}</li>))}</h3>
+              : <> </>
+            }
+          </div>
+          <div className={style.img}>
+          <img src={event.img} alt={'img'}/></div>
         </div>
-      </div>
+        <div className={style.desc}>{event.description}</div>
+      </>
     )
   }
 })

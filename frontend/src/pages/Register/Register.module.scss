@@ -1,0 +1,17 @@
+@import "src/index";
+
+.login {
+ @include modal_with_input ($height: 550px)
+}
+.top {
+  @extend %modal_top
+}
+.bottom {
+  text-align: right;
+  padding-right: 45px;
+  .but {
+    @include button($w:max-content, $h:50px);
+    padding: 0 15px;
+    font-size: 24px;
+  }
+}

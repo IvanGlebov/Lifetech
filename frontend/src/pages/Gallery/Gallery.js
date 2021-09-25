@@ -3,15 +3,13 @@ import style from './Gallery.module.scss'
 import {connect} from "react-redux";
 import EventMini from "../../components/EventMini/EventMini";
 import * as events from "events";
-import img from '@images/sample_event.svg'
 import Line from "../../components/Line/Line";
 
 
 export default connect(
   (store) => ({
     events: store.events.getIn(['events']).toJS()
-
-  })
+  }),
 )
 (class Gallery extends React.Component {
 
@@ -26,7 +24,7 @@ export default connect(
             Object.values(events).map(e => (<EventMini
                 key={e.id}
                 id={e.id}
-                img={img}
+                img={e.img}
                 name={e.name}
                 description={e.description}
                 right={false}

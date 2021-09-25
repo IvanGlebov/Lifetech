@@ -3,11 +3,21 @@
 
 .event{
   padding: $indent*2 $indent*10 ;
-  img {
-    width: 100%;
+  display: flex;
+  justify-content: $spb;
+  .img img{
+    width: 900px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .img {
+    margin: $indent;
+    flex-grow: 2;
+    text-align: center;
   }
 }
 .desc{
-  border: 1px #D6D6D6 solid;
-  padding: $indent;
+  box-shadow: $shadow;
+  margin:0 $indent*10;
+  padding:  $indent*2  $indent;
 }

@@ -4,10 +4,14 @@
   border: $markup;
   overflow: auto;
   text-align: center;
-  @include size($w:360px, $h:80%);
-  min-height: 360px;
+  @include size($w:340px, $h:80%);
+  min-height: 340px;
   .heading {
     letter-spacing: 0.3em;
-    @extend %zero_indents
+    box-shadow: $shadow;
+    padding: $indent $indent/2;
+  }
+  .heading:hover{
+    @extend %hover_back
   }
 }

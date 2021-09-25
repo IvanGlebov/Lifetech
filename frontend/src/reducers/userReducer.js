@@ -7,8 +7,10 @@ export const userInitialState = fromJS({
 })
 
 export const userReducer = (state = {}, action) => {
-  switch (action.type) {
-    default:
-      return state
+  if(action.type.startsWith('USER__')){
+    switch (action.type) {
+      default:
+        return state
+    }
   }
 }

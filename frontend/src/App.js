@@ -6,22 +6,36 @@ import Landing from "@pages/Landing/Landing";
 import Profile_orphanage from "@pages/Profile_orphanage/Profile_orphanage";
 import Gallery from "@pages/Gallery/Gallery";
 import Event from '@components/Event/Event'
+import Login from "@pages/Login/Login";
+import Register from "@pages/Register/Register";
+import {doFetchEvents} from "./reducers/eventsActions";
 
 export default withTranslation()(connect(
   (store) => ({
     location: store.router.location.pathname
   }),
+  (dispatch) => ({
+    fetchEvents: () => doFetchEvents(dispatch)
+  })
 )(class App extends React.Component {
 
   static propTypes = {
-    location: PropTypes.string.isRequired
+    location: PropTypes.string.isRequired,
+
+    fetchEvents: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.props.fetchEvents()
   }
 
   routes = [
     ['^/$', () => <Landing/>], // Path for / (main page with tasks)
     ['^/orphanage', () => <Profile_orphanage/>],
     ['^/gallery', () => <Gallery/>],
-    ['^/event', () => <Event/>] // :8080/event?eventid=1263812
+    ['^/event', () => <Event/>] ,//
+    ['^/login', () => <Login/>],
+    ['^/register', () => <Register/>],
   ]
 
 

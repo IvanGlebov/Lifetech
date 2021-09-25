@@ -34,9 +34,10 @@ body {
   font-size: 1.2em;
   color: $color
 }
+
 html, body {
-  scrollbar-color: #458245 #714826;     /* «цвет ползунка» «цвет полосы скроллбара» */
-  scrollbar-width: thin;  /* толщина */
+  scrollbar-color: #458245 #714826; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin; /* толщина */
 }
 
 // size of block
@@ -46,9 +47,9 @@ html, body {
 }
 
 // init pink button
-@mixin button($w:140px) {
+@mixin button($w:140px, $h:40px) {
   background-color: #FF4459;
-  height: 40px;
+  height: $h;
   width: $w;
   margin: $indent;
   border-radius: $radius;
@@ -60,15 +61,17 @@ html, body {
 
 // button with icon
 %icon {
-  @include size($w:40px, $h:40px);
+  @include size($w: 40px, $h: 40px);
   border: $markup;
   text-align: center;
   color: $pink;
   background: none;
   padding: 0;
+
   i {
     font-size: 35px;
   }
+
   margin: $indent;
 }
 
@@ -91,4 +94,81 @@ html, body {
   top: $t;
   right: $r;
   z-index: $z;
+}
+
+%hover_back {
+  background-color: #f3eded;
+}
+
+// for modals
+%modal_top {
+  margin-top: 16.25px;
+  height: 48.75px;
+  text-align: left;
+
+  h3 {
+    color: black;
+    margin: 0 0 0 30px;
+  }
+}
+
+@mixin modal($width:460px, $height:450px) {
+  background: $back;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  .block {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -$width/2;
+    margin-top: -$height/2;
+    background-color: #faf6f6;
+    border-radius: $radius;
+    text-align: center;
+    height: $height;
+    width: $width;
+    box-shadow: $shadow;
+  }
+  .top {
+    border-bottom: 2px #bdadad solid;
+  }
+  input:focus {
+    background-color: #ece1e9;
+  }
+}
+
+@mixin modal_but($width:409px, $height:60px, $font:1.2em, $b:$blocks-back, $c:black) {
+  background-color: $b;
+  height: $height;
+  border: none;
+  box-shadow: $shadow;
+  border-radius: $radius;
+  font-size: $font;
+  font-family: $family;
+  width: $width;
+  color: $c
+}
+
+@mixin modal_with_input($width: 512px, $height: 279px) {
+  @include modal($width: $width, $height: $height);
+  input {
+    @include modal_but($height: 37px);
+    padding: $indent*2 0 $indent*2 $indent*6;
+    font-size: 24px;
+    resize: none;
+    overflow: hidden;
+  }
+  input:focus {
+    outline: none;
+  }
+  input:first-child {
+    margin-top: $indent*4;
+  }
+  input {
+    margin-bottom: $indent*4;
+  }
 }

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, UserManager
 """
 РОЛИ:
 детский дом
@@ -18,10 +18,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class BasicUser(AbstractUser):
-    email = models.EmailField(unique=True)
-    
-
-    USERNAME_FIELD = 'email'
+    pass
 
 
 class Member(models.Model):

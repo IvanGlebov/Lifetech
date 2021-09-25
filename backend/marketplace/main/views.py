@@ -69,7 +69,10 @@ def get_event(request):
 
 def register_basic_user(request):
     parsed = json.loads(request.body.decode)
-
-    user = BasicUser.objects.create_user(username='',
-                                 email='',
-                                 password='')
+    username = parsed.username
+    email = parsed.email
+    password = parsed.password
+    user = BasicUser.objects.create_user(username=username,
+                                 email=email,
+                                 password=password
+                                         )

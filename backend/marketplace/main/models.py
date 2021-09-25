@@ -18,29 +18,6 @@ from django.contrib.auth.models import AbstractUser, UserManager
 """
 
 
-class BasicUser(AbstractUser):
-    first_name = models.CharField(max_length=50)
-    second_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
-    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, null=True)
-
-    def to_short_dict(self):
-        return {
-            'id': self.id,
-            'first_name': self.first_name,
-            'second_name': self.second_name,
-            'last_name': self.last_name,
-            'region': self.region.to_short_dict(),
-            'user_group': self.user_group.to_short_dict()
-        }
-
-
-
-
-class CustomUserManager(UserManager):
-    pass
-
 
 
 class Group(models.Model):

@@ -4,7 +4,7 @@ export const userInitialState = fromJS({
   username: '',
   email: '',
   authorized: true,
-  user_group: 'Organizer'
+  user_group: 'Child'
 })
 
 export const userReducer = (state = {}, action) => {

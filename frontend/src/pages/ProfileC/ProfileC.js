@@ -1,5 +1,5 @@
 import React from "react"
-import style from './ProfileO.module.scss'
+import style from './ProfileC.module.scss'
 import Line from "@components/Line/Line";
 import Photo from "@components/PhotoMini/PhotoMini";
 import {connect} from "react-redux";

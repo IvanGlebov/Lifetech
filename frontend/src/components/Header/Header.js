@@ -12,7 +12,7 @@ export default connect(
     redirectToRegister: () => dispatch(push('/register')),
     redirectToMain: () => dispatch(push('/')),
     redirectToEvents: () => dispatch(push('/gallery')),
-    redirectToOrphanage:() => dispatch(push('/profile')),
+    redirectToProfile:() => dispatch(push('/profile')),
   })
 )
 (class Header extends React.Component {
@@ -34,7 +34,7 @@ export default connect(
         </div>
         {authorized
           ? <form>
-            <button onClick={this.props.redirectToOrphanage} className={style.person}>
+            <button onClick={this.props.redirectToProfile} className={style.person}>
               <i className="bi bi-person-circle"/>
             </button>
             <button className={style.register}>выйти</button>

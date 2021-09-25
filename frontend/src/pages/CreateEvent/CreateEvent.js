@@ -31,6 +31,12 @@ export default class CreateEvent extends React.Component {
           placeholder: 'Выберите фотографию',
           type:'file'
         },
+        5: {
+          id: 5,
+          desc: 'Количество волонтеров',
+          placeholder: 'Введите количество волонтеров',
+          type:'number'
+        },
       }
     }
   }

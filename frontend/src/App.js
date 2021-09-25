@@ -8,9 +8,11 @@ import Event from '@components/Event/Event'
 import Login from "@pages/Login/Login";
 import Register from "@pages/Register/Register";
 import {doFetchEvents} from "./reducers/eventsActions";
-import {Header} from "./components";
-import ProfileO from "./pages/ProfileO/ProfileO";
-import CreateEvent from "./pages/CreateEvent/CreateEvent";
+import {Header} from "@components";
+import ProfileO from "@pages/ProfileO/ProfileO";
+import CreateEvent from "@pages/CreateEvent/CreateEvent";
+import CreateRequest from "@pages/CreateRequest/CreateRequest";
+import ChildrenList from "./pages/ChildrenList/ChildrenList";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -42,7 +44,9 @@ export default withTranslation()(connect(
     ['^/event', () => <Event/>] ,//
     ['^/login', () => <Login/>],
     ['^/register', () => <Register/>],
-    ['^/create-an-event', () => <CreateEvent/>],
+    ['^/create-event', () => <CreateEvent/>],
+    ['^/create-request', () => <CreateRequest/>],
+    ['^/children-list', () => <ChildrenList/>],
   ]
 
 

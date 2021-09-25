@@ -13,7 +13,7 @@ export default class Profile_orphanage extends React.Component {
         3: {id: 3, name: 'статусы мероприятий'},
         4: {id: 4, name: 'проведенные мероприятия'},
         5: {id: 5, name: 'запрос помощи'},
-        6: {id: 6, name: 'выставить оценки волонтерам'},
+        6: {id: 6, name: 'обратная связь'},
       }
     }
   }
@@ -43,7 +43,7 @@ export default class Profile_orphanage extends React.Component {
           </div>
 
           <div className={style.photogal}>
-            <h1>hello</h1>
+
           </div>
 
         </div>

@@ -53,6 +53,8 @@
   grid-gap: 20px;
   button {
     display: inline-block;
+    font-size: 30px;
+    float: bottom;
   }
   button:active, button:focus {
     outline: none;
@@ -72,6 +74,6 @@
 .photogal{
   grid-area: photo;
   width: 1030px;
-  height: 651px;
+  height: 650px;
   background: #D6D6D6;
 }

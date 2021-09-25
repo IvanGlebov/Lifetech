@@ -4,8 +4,8 @@ import {connect} from "react-redux"
 import PropTypes from 'prop-types'
 import Landing from "@pages/Landing/Landing";
 import Profile_orphanage from "@pages/Profile_orphanage/Profile_orphanage";
-import Gallery from "./pages/Gallery/Gallery";
-
+import Gallery from "@pages/Gallery/Gallery";
+import Event from '@components/Event/Event'
 
 export default withTranslation()(connect(
   (store) => ({
@@ -20,7 +20,8 @@ export default withTranslation()(connect(
   routes = [
     ['^/$', () => <Landing/>], // Path for / (main page with tasks)
     ['^/orphanage', () => <Profile_orphanage/>],
-    ['^/gallery', () => <Gallery/>]
+    ['^/gallery', () => <Gallery/>],
+    ['^/event', () => <Event/>] // :8080/event?eventid=1263812
   ]
 
 

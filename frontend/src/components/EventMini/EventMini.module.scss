@@ -2,9 +2,10 @@
 
 
 .event1, .event2 {
-  margin: $indent/2;
+  margin: $indent;
   box-shadow: $shadow;
   width: 330px;
+  float: left;
   img {
     @include size($w:100%, $h:100px);
     object-fit: cover;
@@ -19,20 +20,18 @@
 }
 .event1 {
   width: 95%;
-  float: top;
 }
 .event2 {
   width: 330px;
-  float: left;
 }
-.event:hover {
+.event1:hover, .event2:hover {
   background-color: #f3eded;
 }
 
-.desc , .desc h5{
+.desc , .desc h4{
   text-align: left;
   border: $markup;
   overflow: hidden;
-  white-space: nowrap; /* Запрещаем перенос строк */
-  text-overflow: ellipsis; /* Добавляем многоточие */
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

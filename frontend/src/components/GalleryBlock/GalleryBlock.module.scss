@@ -8,5 +8,6 @@
   min-height: 360px;
   .heading {
     letter-spacing: 0.3em;
+    @extend %zero_indents
   }
 }

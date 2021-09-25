@@ -1,0 +1,13 @@
+@import "src/index";
+
+
+.event{
+  padding: $indent*2 $indent*10 ;
+  img {
+    width: 100%;
+  }
+}
+.desc{
+  border: 1px #D6D6D6 solid;
+  padding: $indent;
+}

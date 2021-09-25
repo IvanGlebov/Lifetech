@@ -35,6 +35,8 @@ class BasicUser(AbstractUser):
             'user_group': self.user_group.to_short_dict()
         }
 
+def BasicUserManager(UserManager):
+    pass
 
 class Group(models.Model):
     # Voulonteer

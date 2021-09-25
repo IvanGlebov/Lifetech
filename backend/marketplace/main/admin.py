@@ -5,13 +5,8 @@ from django.contrib.auth.admin import UserAdmin
 from .forms import BasicUserCreationForm, BasicUserChangeForm
 from .models import *
 
-class BasicUserAdmin(UserAdmin):
-    add_form = BasicUserCreationForm
-    form = BasicUserChangeForm
-    model = BasicUser
-    list_display = ['email', 'username',]
 
-admin.site.register(BasicUser, BasicUserAdmin)
+admin.site.register(BasicUser)
 admin.site.register(Event)
 admin.site.register(Group)
 admin.site.register(Child)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
+
 """
 РОЛИ:
 детский дом
@@ -18,7 +19,34 @@ from django.contrib.auth.models import AbstractUser, UserManager
 
 
 class BasicUser(AbstractUser):
-    pass
+    first_name = models.CharField(max_length=50)
+    second_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
+    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, blank=False)
+
+    def to_short_dict(self):
+        return {
+            'id': self.id,
+            'first_name': self.first_name,
+            'second_name': self.second_name,
+            'last_name': self.last_name,
+            'region': self.region.to_short_dict(),
+            'user_group': self.user_group.to_short_dict()
+        }
+
+
+class Group(models.Modal):
+    # Voulonteer
+    # Child
+    # Orphanage
+    name = models.CharField(max_length=50)
+
+    def to_short_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }
 
 
 class Member(models.Model):
@@ -93,6 +121,13 @@ class Region(models.Model):
     """
     title = models.CharField(max_length=100, db_index=True)
     orphanages = models.ManyToManyField("Orphanage")
+
+    def to_short_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            # orphanages dict
+        }
 
 
 class Orphanage(models.Model):

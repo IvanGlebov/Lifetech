@@ -18,8 +18,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class BasicUser(AbstractUser):
-    pass
-    # add additional fields in here
+    email = models.EmailField(unique=True)
+    
+
+    USERNAME_FIELD = 'email'
+
 
 class Member(models.Model):
     """
@@ -32,6 +35,15 @@ class Member(models.Model):
     second_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
+
+    def to_short_dict(self):
+        return {
+            'id': self.id,
+            'first_name': self.first_name,
+            'second_name': self.second_name,
+            'last_name': self.last_name,
+            'region': self.region
+        }
 
 
 class Child(models.Model):
@@ -57,20 +69,16 @@ class Volunteer(models.Model):
     active_events = models.ManyToManyField("Event")
 
 
-
 class Event(models.Model):
     """
     Мероприятие
     ---------------
     название
     описание
-    краткое_описание
     картинка
     статус
     регион
     площадка
-    детский дом
-    спонсоры(?)
     волонтёры
     """
     title = models.CharField(max_length=100)

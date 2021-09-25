@@ -17,8 +17,4 @@ class BasicUserChangeForm(UserChangeForm):
         fields = ('username', 'email')
 
 
-class MemberForm(forms.Form):
 
-    class Meta:
-        model = Member
-        fields = ['first_name', 'second_name', 'last_name', 'region']

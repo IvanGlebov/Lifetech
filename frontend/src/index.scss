@@ -14,7 +14,7 @@ $radius: 10px; //blocks border radius
 $indent: 10px; //mini-indents for icons and text in blocks
 
 // shadow and borders
-$markup: none; //for markup layout 1px #000000 dotted
+$markup: 1px #000000 dotted; //for markup layout 1px #000000 dotted
 $shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
 //flex settings
@@ -152,11 +152,11 @@ html, body {
     border-bottom: 2px #bdadad solid;
   }
   input:focus {
-    background-color: #ece1e9;
+    background-color: #f5edf3;
   }
 }
 
-@mixin modal_but($width:409px, $height:60px, $font:1.2em, $b:$blocks-back, $c:black) {
+@mixin modal_but($width:409px, $height:60px, $font:1.2em, $b:rgba(255,255,255,0.74), $c:black) {
   background-color: $b;
   height: $height;
   border: none;

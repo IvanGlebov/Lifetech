@@ -3,18 +3,19 @@ import {withTranslation} from "react-i18next"
 import {connect} from "react-redux"
 import PropTypes from 'prop-types'
 import Landing from "@pages/Landing/Landing";
-import Profile_orphanage from "@pages/Profile_orphanage/Profile_orphanage";
 import Gallery from "@pages/Gallery/Gallery";
 import Event from '@components/Event/Event'
 import Login from "@pages/Login/Login";
 import Register from "@pages/Register/Register";
 import {doFetchEvents} from "./reducers/eventsActions";
-import Profile_child from "@pages/Profile_child/Profile_child";
 import {Header} from "./components";
+import ProfileO from "./pages/ProfileO/ProfileO";
+import CreateEvent from "./pages/CreateEvent/CreateEvent";
 
 export default withTranslation()(connect(
   (store) => ({
-    location: store.router.location.pathname
+    location: store.router.location.pathname,
+    user_group:store.user.getIn(['user_group'])
   }),
   (dispatch) => ({
     fetchEvents: () => doFetchEvents(dispatch)
@@ -23,7 +24,6 @@ export default withTranslation()(connect(
 
   static propTypes = {
     location: PropTypes.string.isRequired,
-
     fetchEvents: PropTypes.func.isRequired
   }
 
@@ -33,12 +33,16 @@ export default withTranslation()(connect(
 
   routes = [
     ['^/$', () => <Landing/>], // Path for / (main page with tasks)
-    ['^/profile-o', () => <Profile_orphanage/>],
-    ['^/profile-c', () => <Profile_child/>],
+    ['^/profile', () =>
+      (this.props.user_group === 'Organizer'
+        ? <ProfileO />
+        : <></>)
+    ],
     ['^/gallery', () => <Gallery/>],
     ['^/event', () => <Event/>] ,//
     ['^/login', () => <Login/>],
     ['^/register', () => <Register/>],
+    ['^/create-an-event', () => <CreateEvent/>],
   ]
 
 

@@ -1,0 +1,37 @@
+@import "src/index";
+
+.create_event {
+  .block {
+    margin: 80px auto;
+    position: relative;
+    padding: $indent*3;
+    background-color: #ffffff;
+    text-align: center;
+    height: max-content;
+    width: 70%;
+    box-shadow: $shadow;
+    border-radius: $radius;
+  }
+  h2 {
+    @extend %zero_indents
+  }
+  input {
+    border: none;
+    font-size: 18px;
+    width: 90%;
+    border-radius: $radius;
+    padding: $indent*2; margin: $indent 0 ;
+    font-family:$family;
+    box-shadow: $shadow;
+  }
+  input:focus {
+    outline: none;
+    background-color: #f5edf3;
+  }
+  button {
+    @include button($w:max-content)
+  }
+  button:hover {
+    @extend %hover_pink_button
+  }
+}

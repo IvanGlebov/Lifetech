@@ -11,10 +11,14 @@ export default connect(
     redirectToLogin: () => dispatch(push('/login')),
     redirectToRegister: () => dispatch(push('/register')),
     redirectToMain: () => dispatch(push('/')),
-    redirectToEvents: () => dispatch(push('/gallery'))
+    redirectToEvents: () => dispatch(push('/gallery')),
+    redirectToOrphanage:() => dispatch(push('/profile')),
   })
 )
 (class Header extends React.Component {
+  changeAuthStatus = () => {
+
+  }
 
   render() {
     const {authorized} = this.props
@@ -30,7 +34,7 @@ export default connect(
         </div>
         {authorized
           ? <form>
-            <button className={style.person}>
+            <button onClick={this.props.redirectToOrphanage} className={style.person}>
               <i className="bi bi-person-circle"/>
             </button>
             <button className={style.register}>выйти</button>

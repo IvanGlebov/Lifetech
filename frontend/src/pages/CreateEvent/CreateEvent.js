@@ -1,0 +1,61 @@
+import React from "react"
+import style from './CreateEvent.module.scss'
+
+
+export default class CreateEvent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      forms: {
+        1: {
+          id: 1,
+          desc: 'Ссылка на чат в telegram:',
+          placeholder: 'Введите ссылку на чат в Telegram ля вашего мероприятия',
+          type:'url'
+        },
+        2: {
+          id: 2,
+          desc: 'Название мероприятия',
+          placeholder: 'Введите название вашего мероприятия',
+          type:'text'
+        },
+        3: {
+          id: 3,
+          desc: 'Описание мероприятия',
+          placeholder: 'Введите описание вашего мероприятия',
+          type:'text'
+        },
+        4: {
+          id: 4,
+          desc: 'Прикрепить фотографию',
+          placeholder: 'Выберите фотографию',
+          type:'file'
+        },
+      }
+    }
+  }
+
+  render() {
+    const {forms} = this.state
+    return (
+      <div className={style.create_event}>
+        <div className={style.block}>
+          <h2>Создание мероприятия</h2>
+          {
+            Object.values(forms).map(f =>
+              (<form key={f.id} className={style.form}>
+                  <p>{f.desc}</p>
+                  <input
+                    placeholder={f.placeholder}
+                    type={f.type}
+                    required={true}
+                  />
+                </form>
+              ))
+          }
+          <button>Создать мероприятие</button>
+        </div>
+      </div>
+    )
+  }
+}

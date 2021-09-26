@@ -19,6 +19,7 @@ def get_events(request):
     """
     работает
     """
+    
     events = Event.objects.all()
     return JsonResponse({
         'events': dict((event.id, event.to_short_dict()) for event in events)

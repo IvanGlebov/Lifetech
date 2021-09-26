@@ -47,7 +47,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    person = models.ForeignKey("Userr", on_delete=models.PROTECT)
+    person = models.ForeignKey("User", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 

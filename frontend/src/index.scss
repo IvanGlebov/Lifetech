@@ -127,6 +127,16 @@ html, body {
   }
 }
 
+@mixin modal_but ($width:409px, $height:60px, $font:1.2em) {
+  background-color: $blocks-back;
+  height: $height;
+  border:none;
+  box-shadow: $shadow;
+  border-radius: $radius+10px;
+  font-size: $font;
+  font-family: $family;
+  width: $width;
+}
 @mixin modal($width:460px, $height:450px) {
   background: $back;
   background-size: cover;
@@ -152,21 +162,10 @@ html, body {
     border-bottom: 2px #bdadad solid;
   }
   input:focus {
-    background-color: #ece1e9;
+    background-color: #f5edf3;
   }
 }
 
-@mixin modal_but($width:409px, $height:60px, $font:1.2em, $b:$blocks-back, $c:black) {
-  background-color: $b;
-  height: $height;
-  border: none;
-  box-shadow: $shadow;
-  border-radius: $radius;
-  font-size: $font;
-  font-family: $family;
-  width: $width;
-  color: $c
-}
 
 @mixin modal_with_input($width: 512px, $height: 279px) {
   @include modal($width: $width, $height: $height);
@@ -185,5 +184,45 @@ html, body {
   }
   input {
     margin-bottom: $indent*4;
+  }
+}
+@mixin modal_form() {
+  .block {
+    margin: 80px auto;
+    padding: $indent*3;
+    background-color: #ffffff;
+    text-align: center;
+    height: max-content;
+    width: 70%;
+    box-shadow: $shadow;
+    border-radius: $radius;
+    position: relative;
+  }
+  h2 {
+    @extend %zero_indents
+  }
+  input {
+    border: none;
+    font-size: 18px;
+    width: 90%;
+    border-radius: $radius;
+    padding: $indent*2; margin: $indent 0 ;
+    font-family:$family;
+    box-shadow: $shadow;
+  }
+  input:focus {
+    outline: none;
+    background-color: #f5edf3;
+  }
+  button {
+    @include button($w:max-content)
+  }
+  button:hover {
+    @extend %hover_pink_button
+  }
+  .close {
+    position: absolute;
+    top:$indent*2;
+    right: $indent*2;
   }
 }

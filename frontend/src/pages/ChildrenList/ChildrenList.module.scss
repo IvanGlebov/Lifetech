@@ -1,0 +1,15 @@
+@import "src/index";
+
+.create_event {
+  @include modal_form;
+}
+
+.tableNames{
+  display: block;
+  margin:$indent*2 auto;
+  text-align: center;
+}
+
+td {
+  vertical-align: top;
+}

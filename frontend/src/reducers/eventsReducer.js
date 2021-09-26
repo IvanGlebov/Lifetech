@@ -8,8 +8,10 @@ export const eventsInitialState = fromJS({
       img: 'https://size-up.ru/wp-content/uploads/2019/10/%D0%B1%D0%B8%D0%BB%D0%BB%D0%B8-1280x720.png',
       name: 'Online Встреча с Billie Eilish',
       description: 'Самое ожидаемое мероприятие 2021 года!',
+      status:'прошло',
       region:'Новгородская область',
-      volunteers:[]
+      volunteers:[],
+
     },
     2: {id: 2,
       img: 'https://grantist.com/wp-content/uploads/2015/06/stazhirovka-v-nacionalnom-agentstve-finansovyx-issledovanij-v-moskve.jpg',
@@ -24,7 +26,7 @@ export const eventsInitialState = fromJS({
       img: 'https://s.go31.ru/section/afisha_event/upload/pers/65/img/afisha/000/000/002/170124113748357_59392ab13439b.jpg',
       name: 'Посещение нового кинотеатра "Ласточка"',
       description: '29.09.2021 года открывается новый кинотеатр в г.Новгород. Все желающие могут посмотреть любимый мультсериал на большом экране',
-      status:'запланировано',
+      status:'прошло',
       region:'Новгородская область',
       volunteers:[]
     }

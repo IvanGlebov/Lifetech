@@ -1,0 +1,69 @@
+@import "src/index";
+
+.child {
+  margin: 80px auto;
+  width: 90%;
+  .circle {
+    @include size($w:40px, $h:40px);
+    border-radius: $radius*3;
+    background-color: #D6D6D6;
+  }
+  .name {
+    display: flex;
+    width: max-content;
+    height: 40px;
+    margin-left: $indent;
+  }
+  h2 {
+    @extend %zero_indents;
+    margin-left: $indent;
+  }
+  .buttons {
+    margin: $indent;
+    display: flex;
+    flex-direction: row;
+    justify-content: $spb;
+  }
+  .buttons1,  .buttons2, .buttons3,{
+    display: flex;
+    flex-direction: column;
+    justify-content: $spb;
+  }
+  .buttons1,  .buttons2, {
+    @include size($w:27%, $h:300px);
+  }
+  .buttons3 {
+    @include size($w:43%, $h:300px);
+  }
+  .but {
+    text-align: center;
+    color: $blocks-back;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    height: 48.5%;
+    background-color: $blue;
+    border-radius: $radius;
+
+  }
+  .buttons3 div:last-child {
+    background-color: $pink;
+  }
+  .buttons3 div:last-child:hover {
+    @extend %hover_pink_button
+  }
+  .buttons2 div:first-child {
+    background-color: $pink;
+  }
+  .buttons2 div:first-child:hover {
+    @extend %hover_pink_button
+  }
+
+}
+
+li {
+  list-style-type: none;
+}
+ul {
+  margin-left: 0;
+  padding-left: 0;
+}

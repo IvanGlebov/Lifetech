@@ -9,9 +9,9 @@ export default class ChildrenList extends React.Component {
       forms: {
         1: {
           id: 1,
-          desc: 'Таблица:',
-          placeholder: 'Имя/логин/пароль',
-          type:'text'
+          name: 'Маша',
+          login: 'fghhhfh',
+          password: 'tffghfh'
         }
       }
     }
@@ -23,22 +23,29 @@ export default class ChildrenList extends React.Component {
       <div className={style.create_event}>
         <div className={style.block}>
           <h2>Список воспитанников</h2>
-          {
-            Object.values(forms).map(f =>
-              (<form key={f.id} className={style.form}>
-                  <p>{f.desc}</p>
 
-                  <table width="750" cellPadding="5" cellSpacing="0">
-                    <tr>
-                      <td width="150">Имя воспитанника</td>
-                      <td width="300">Логин</td>
-                      <td width="300">Пароль</td>
-                    </tr>
-                  </table>
-
-                </form>
-              ))
-          }
+          <table className={style.tableNames} width="900" cellPadding="5" cellSpacing="0">
+            <tr>
+              <th width="300">Имя воспитанника</th>
+              <th width="300">Логин</th>
+              <th width="300">Пароль</th>
+            </tr>
+            <tr>
+              <td width="300">Андрей</td>
+              <td width="300">yhf53kfhdj</td>
+              <td width="300">thrtj645Q</td>
+            </tr>
+            <tr>
+              <td width="300">Тимофей</td>
+              <td width="300">e4543ys</td>
+              <td width="300">uifiY7766g</td>
+            </tr>
+            <tr>
+              <td width="300">Ангелина</td>
+              <td width="300">yjk683da</td>
+              <td width="300">ghhR45ED9</td>
+            </tr>
+            </table>
         </div>
       </div>
     )

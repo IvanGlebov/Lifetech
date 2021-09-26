@@ -3,3 +3,13 @@
 .create_event {
   @include modal_form
 }
+
+.tableNames{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  vertical-align: top;
+}

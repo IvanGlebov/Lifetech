@@ -13,6 +13,9 @@ import ProfileO from "@pages/ProfileO/ProfileO";
 import CreateEvent from "@pages/CreateEvent/CreateEvent";
 import CreateRequest from "@pages/CreateRequest/CreateRequest";
 import ChildrenList from "./pages/ChildrenList/ChildrenList";
+import ProfileC from "./pages/ProfileC/ProfileC";
+import FinishedEvents from "./pages/FinishedEvents/FinishedEvents";
+import VolRate from "./pages/VolRate/VolRate";
 
 export default withTranslation()(connect(
   (store) => ({
@@ -38,7 +41,7 @@ export default withTranslation()(connect(
     ['^/profile', () =>
       (this.props.user_group === 'Organizer'
         ? <ProfileO />
-        : <></>)
+        : <ProfileC/>)
     ],
     ['^/gallery', () => <Gallery/>],
     ['^/event', () => <Event/>] ,//
@@ -47,6 +50,8 @@ export default withTranslation()(connect(
     ['^/create-event', () => <CreateEvent/>],
     ['^/create-request', () => <CreateRequest/>],
     ['^/children-list', () => <ChildrenList/>],
+    ['^/finished-events', () => <FinishedEvents/>],
+    ['^/vol-rate', () => <VolRate/>],
   ]
 
 

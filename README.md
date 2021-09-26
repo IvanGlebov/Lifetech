@@ -16,8 +16,6 @@
 ### Webpack, Babel.
 ### Git.
 
-Демо
-Демо сервиса будет доступно по адресу: http://demo.test
 
 Реквизиты тестового пользователя: email: testuser@test.ru, пароль: testuser
 

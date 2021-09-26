@@ -1,0 +1,17 @@
+@import "src/index";
+
+.gallery{
+  border: $markup;
+  overflow: auto;
+  text-align: center;
+  @include size($w:340px, $h:80%);
+  min-height: 340px;
+  .heading {
+    letter-spacing: 0.3em;
+    box-shadow: $shadow;
+    padding: $indent $indent/2;
+  }
+  .heading:hover{
+    @extend %hover_back
+  }
+}

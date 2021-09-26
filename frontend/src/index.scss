@@ -1,81 +1,212 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 
-$color: #FFF3ED; //text color
+//colors
+$color: #000000; //text color
 $blocks-back: #FFFEFE; //background for blocks
-$back:#6D5F69;
-$name-size: 48px; //logoName
-$radius: 20px; //blocks border radius
+$back: #ffffff;
+$pink: #FF4459;
+$blue: #4CA0EE;
+
+// sizes
+$heading-size: 48px; //headings
+$radius: 10px; //blocks border radius
+$indent: 10px; //mini-indents for icons and text in blocks
+
+// shadow and borders
+$markup: 1px #000000 dotted; //for markup layout 1px #000000 dotted
 $shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-$bl-height: 50px; //height for blocks
-$bl-width: 50px; //width for blocks
-$markup: none; //for markup layout 1px #ffffff dotted
+
+//flex settings
 $spb: space-between; //reduction
 $spe: space-evenly; //reduction
-$indent: 3px; //mini-indents for icons and text in blocks
+
+//img
+$background_modal: 'background_modal.svg';
+
+//font-family
+$family: 'Montserrat', sans-serif;
+
+//body
 body {
-  //background-color: $back;
+  background-color: $back;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5em;
-  //color: $color
+  font-family: $family;
+  font-size: 1.2em;
+  color: $color
 }
 
-%button {
-  width: $bl-width;
-  height: $bl-height;
+html, body {
+  scrollbar-color: #458245 #714826; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-width: thin; /* толщина */
+}
+
+// size of block
+@mixin size($w:0, $h:0) {
+  width: $w;
+  height: $h;
+}
+
+// init pink button
+@mixin button($w:140px, $h:40px) {
+  background-color: #FF4459;
+  height: $h;
+  width: $w;
+  margin: $indent;
   border-radius: $radius;
+  color: #FFFEFE;
   border: none;
+  font-family: $family;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+// button with icon
+%icon {
+  @include size($w: 40px, $h: 40px);
+  border: $markup;
   text-align: center;
-
-}
-
-%white_button {
-  background: $blocks-back;
-  box-shadow: $shadow;
-  padding-top: 4px;
-  margin-left: 10px;
-  font-size: 1em;
-}
-
-%dark_button {
-  color: $color;
+  color: $pink;
   background: none;
-}
+  padding: 0;
 
-%flex_settings_row {
-  display: flex;
-  flex-direction: row;
-}
-
-%init_block {
-  height: $bl-height;
-  border-radius: $radius;
-  background-color: $blocks-back;
-  color: black;
-  box-shadow: $shadow;
-
-  span {
-    margin-bottom: $indent;
-  }
-}
-
-%icon_in_block {
-  @extend %button;
-  box-shadow: none;
-  margin: 0 0 $indent 0;
-  padding: 10px 0;
-  height: $bl-height - 20px;
-  display: inline-block;
-  align-items: center;
-}
-
-@mixin block($where:start) {
   i {
-    font-size: 1.2em;
+    font-size: 35px;
   }
-  @extend %init_block;
-  @extend %flex_settings_row;
-  align-items: center;
-  justify-content: $where;
+
+  margin: $indent;
+}
+
+// make indents = 0
+%zero_indents {
+  padding: 0;
+  margin: 0;
+}
+
+// flex settings
+@mixin flex-settings($j:right) {
+  display: flex;
+  justify-content: $j;
+}
+
+// absolute blocks
+@mixin sample($t:0,$r:unset,$l:0,$p:absolute, $z:0) {
+  position: $p;
+  left: $l;
+  top: $t;
+  right: $r;
+  z-index: $z;
+}
+
+//hover
+%hover_back {
+  background-color: #f3eded;
+}
+%hover_pink_button {
+  background-color: #9b162c
+}
+%hover_blue_button {
+  background-color: #32699d
+}
+%hover_blue_icon {
+  color: #32699d
+}
+%hover_pink_icon {
+  color: #9b162c
+}
+
+// for modals
+%modal_top {
+  margin-top: 16.25px;
+  height: 48.75px;
+  text-align: left;
+
+  h3 {
+    color: black;
+    margin: 0 0 0 30px;
+  }
+}
+
+@mixin modal($width:460px, $height:450px) {
+  background: $back;
+  background-size: cover;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  .block {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -$width/2;
+    margin-top: -$height/2;
+    background-color: #faf6f6;
+    border-radius: $radius;
+    text-align: center;
+    height: $height;
+    width: $width;
+    box-shadow: $shadow;
+  }
+  .top {
+    border-bottom: 2px #bdadad solid;
+  }
+  input:focus {
+    background-color: #f5edf3;
+  }
+}
+
+
+@mixin modal_with_input($width: 512px, $height: 279px) {
+  @include modal($width: $width, $height: $height);
+  input {
+    @include button($h: 37px);
+    padding: $indent*2 0 $indent*2 $indent*6;
+    font-size: 24px;
+    resize: none;
+    overflow: hidden;
+  }
+  input:focus {
+    outline: none;
+  }
+  input:first-child {
+    margin-top: $indent*4;
+  }
+  input {
+    margin-bottom: $indent*4;
+  }
+}
+@mixin modal_form() {
+  .block {
+    margin: 80px auto;
+    padding: $indent*3;
+    background-color: #ffffff;
+    text-align: center;
+    height: max-content;
+    width: 70%;
+    box-shadow: $shadow;
+    border-radius: $radius;
+  }
+  h2 {
+    @extend %zero_indents
+  }
+  input {
+    border: none;
+    font-size: 18px;
+    width: 90%;
+    border-radius: $radius;
+    padding: $indent*2; margin: $indent 0 ;
+    font-family:$family;
+    box-shadow: $shadow;
+  }
+  input:focus {
+    outline: none;
+    background-color: #f5edf3;
+  }
+  button {
+    @include button($w:max-content)
+  }
+  button:hover {
+    @extend %hover_pink_button
+  }
 }

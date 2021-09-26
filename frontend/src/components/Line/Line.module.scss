@@ -1,0 +1,8 @@
+@import "src/index";
+
+.line {
+  background-color: $pink;
+  @include size($w:25px, $h:100%);
+  @include sample($l:0, $t:0, $z:1, $p:fixed);
+  min-height: available;
+}

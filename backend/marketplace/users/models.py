@@ -13,6 +13,10 @@ from django.db.models import Q
 
 
 class User(AbstractUser):
+    role = models.CharField(max_length=50, default="Organizer")
+
+    REQUIRED_FIELDS = ['role']
+
     class Meta(AbstractUser.Meta):
         swappable = 'AUTH_USER_MODEL'
 
@@ -22,7 +26,7 @@ class User(AbstractUser):
 
             'name': self.first_name,
             'lastName': self.last_name,
-            # 'phone': self.phone,
+            'role': self.role,
             'username': self.username,
             'email': self.email,
             'isStaff': self.is_staff,

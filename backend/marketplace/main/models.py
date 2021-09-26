@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import User
+from users.models import *
 from django.contrib.auth.models import AbstractUser, UserManager
 
 """
@@ -47,7 +47,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    person = models.ForeignKey("User", on_delete=models.PROTECT)
+    person = models.ForeignKey("users.User", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
@@ -59,7 +59,7 @@ class Volunteer(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    person = models.ForeignKey("User", on_delete=models.PROTECT)
+    person = models.ForeignKey("users.User", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
 
 

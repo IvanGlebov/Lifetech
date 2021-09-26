@@ -48,6 +48,7 @@ def sign_up(request):
 
     email = parsed['email']
     name = parsed['name']
+    role = parsed['role']
     last_name = parsed['lastName']
     password = parsed['password']
 
@@ -78,6 +79,8 @@ def sign_up(request):
     user = User(email=email)
     user.username = email
     user.last_name = last_name
+    user.role = role
+
     # users.name = name
     user.set_password(password)
     user.save()

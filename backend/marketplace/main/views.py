@@ -3,7 +3,7 @@ from django.http import JsonResponse
 import json
 from .models import *
 from django.core.serializers import serialize
-from users import views
+import users
 
 
 """
@@ -19,7 +19,7 @@ def get_events(request):
     """
     работает
     """
-    
+
     events = Event.objects.all()
     return JsonResponse({
         'events': dict((event.id, event.to_short_dict()) for event in events)
@@ -37,7 +37,11 @@ def get_event(request):
     event = Event.objects.get(pk=event_id)
     return JsonResponse(event.to_short_dict())
 
-
+'''
+def create_volunteer(request):
+    user = users.views.Info
+    email = user['email']
+'''
 """
 Написать вьюхи для воспитанника, волонтёра и работника
 """

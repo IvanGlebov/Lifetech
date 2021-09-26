@@ -12,15 +12,15 @@ import {Header} from "@components";
 import ProfileO from "@pages/ProfileO/ProfileO";
 import CreateEvent from "@pages/CreateEvent/CreateEvent";
 import CreateRequest from "@pages/CreateRequest/CreateRequest";
-import ChildrenList from "./pages/ChildrenList/ChildrenList";
-import ProfileC from "./pages/ProfileC/ProfileC";
-import FinishedEvents from "./pages/FinishedEvents/FinishedEvents";
-import VolRate from "./pages/VolRate/VolRate";
+import ChildrenList from "@pages/ChildrenList/ChildrenList";
+import ProfileC from "@pages/ProfileC/ProfileC";
+import VolRate from "@pages/VolRate/VolRate";
+import HelpRequest from "@pages/HelpRequest/HelpRequest";
 
 export default withTranslation()(connect(
   (store) => ({
     location: store.router.location.pathname,
-    user_group:store.user.getIn(['user_group'])
+    role:store.user.getIn(['role'])
   }),
   (dispatch) => ({
     fetchEvents: () => doFetchEvents(dispatch)
@@ -39,7 +39,7 @@ export default withTranslation()(connect(
   routes = [
     ['^/$', () => <Landing/>], // Path for / (main page with tasks)
     ['^/profile', () =>
-      (this.props.user_group === 'Organizer'
+      (this.props.role === 'Organizer'
         ? <ProfileO />
         : <ProfileC/>)
     ],
@@ -50,8 +50,8 @@ export default withTranslation()(connect(
     ['^/create-event', () => <CreateEvent/>],
     ['^/create-request', () => <CreateRequest/>],
     ['^/children-list', () => <ChildrenList/>],
-    ['^/finished-events', () => <FinishedEvents/>],
     ['^/vol-rate', () => <VolRate/>],
+    ['^/help-request', () => <HelpRequest/>],
   ]
 
 

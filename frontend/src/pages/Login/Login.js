@@ -2,22 +2,26 @@ import React from "react";
 import style from './Login.module.scss'
 import {connect} from "react-redux";
 import {push} from "connected-react-router";
+import {doFetchUser} from "../../reducers/userActions";
+import PropTypes from "prop-types";
 
 
 export default connect(
-  (store) => ({
-    location: store.router.location
-  }),
+  (store) => ({}),
   (dispatch) => ({
-    redirectToMain: () => dispatch(push('/'))
+    redirectToMain: () => dispatch(push('/')),
+    fetchUser: () => doFetchUser(dispatch)
   })
-
 )(class Login extends React.Component {
     constructor(props) {
       super(props);
       this.state = {login: '', password: ''};
       this.handleChangeLogin = this.handleChangeLogin.bind(this);
       this.handleChangePassword = this.handleChangePassword.bind(this)
+    }
+
+    static propTypes = {
+      fetchUser: PropTypes.func.isRequired
     }
 
     handleChangeLogin(event) {
@@ -28,7 +32,11 @@ export default connect(
       this.setState({password: event.target.value});
     }
 
-  render() {
+    componentDidMount() {
+      this.props.fetchUser()
+    }
+
+    render() {
       return (
         <div className={style.login}>
           <div className={style.block}>

@@ -1,8 +1,17 @@
 import React from "react"
 import style from './CreateEvent.module.scss'
+import {connect} from "react-redux";
+import {push} from "connected-react-router";
 
 
-export default class CreateEvent extends React.Component {
+export default connect(
+  (store) => ({}),
+  (dispatch) => ({
+    redirectToProfile: () => {
+      dispatch(push('/profile'))
+    }
+  })
+)(class CreateEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,31 +20,31 @@ export default class CreateEvent extends React.Component {
           id: 1,
           desc: 'Ссылка на чат в telegram:',
           placeholder: 'Введите ссылку на чат в Telegram ля вашего мероприятия',
-          type:'url'
+          type: 'url'
         },
         2: {
           id: 2,
           desc: 'Название мероприятия',
           placeholder: 'Введите название вашего мероприятия',
-          type:'text'
+          type: 'text'
         },
         3: {
           id: 3,
           desc: 'Описание мероприятия',
           placeholder: 'Введите описание вашего мероприятия',
-          type:'text'
+          type: 'text'
         },
         4: {
           id: 4,
           desc: 'Прикрепить фотографию',
           placeholder: 'Выберите фотографию',
-          type:'file'
+          type: 'file'
         },
         5: {
           id: 5,
           desc: 'Количество волонтеров',
           placeholder: 'Введите количество волонтеров',
-          type:'number'
+          type: 'number'
         },
       }
     }
@@ -60,8 +69,9 @@ export default class CreateEvent extends React.Component {
               ))
           }
           <button>Создать мероприятие</button>
+          <button className={style.close} onClick={this.props.redirectToProfile}>закрыть</button>
         </div>
       </div>
     )
   }
-}
+})

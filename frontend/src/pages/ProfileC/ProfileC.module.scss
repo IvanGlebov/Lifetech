@@ -40,25 +40,30 @@
     color: $blocks-back;
     letter-spacing: 0.1em;
     font-size: 24px;
+    height: 48.5%;
+    background-color: $blue;
+    border-radius: $radius;
+
   }
-  .but:hover {
+  .buttons3 div:last-child {
+    background-color: $pink;
+  }
+  .buttons3 div:last-child:hover {
     @extend %hover_pink_button
   }
-  .buttons1 .but {
-    height: 48.5%;
-    background-color: $blue;
-  }
-  .buttons2 :first-child {
-    height: 25%;
+  .buttons2 div:first-child {
     background-color: $pink;
   }
-  .buttons2 :last-child {
-    height: 72%;
-    background-color: $pink;
-  }
-  .buttons3 .but {
-    height: 48.5%;
-    background-color: $blue;
+  .buttons2 div:first-child:hover {
+    @extend %hover_pink_button
   }
 
+}
+
+li {
+  list-style-type: none;
+}
+ul {
+  margin-left: 0;
+  padding-left: 0;
 }

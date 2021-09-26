@@ -1,8 +1,17 @@
 import React from "react"
 import style from './HelpRequest.module.scss'
+import {connect} from "react-redux";
+import {push} from "connected-react-router";
 
 
-export default class HelpRequest extends React.Component {
+export default connect(
+  (store) => ({}),
+  (dispatch) => ({
+    redirectToProfile: () => {
+      dispatch(push('/profile'))
+    }
+  })
+)(class HelpRequest extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,14 +19,14 @@ export default class HelpRequest extends React.Component {
         1: {
           id: 1,
           desc: 'Название мероприятия:',
-          placeholder: 'Введите название мероприятия (дропдаун)',
-          type:'text'
+          placeholder: 'Введите название мероприятия',
+          type: 'text'
         },
         2: {
           id: 2,
           desc: 'Описание запроса',
           placeholder: 'Введите описание запроса для волонтеров',
-          type:'text'
+          type: 'text'
         }
       }
     }
@@ -42,8 +51,9 @@ export default class HelpRequest extends React.Component {
               ))
           }
           <button>Отправить</button>
+          <button className={style.close} onClick={this.props.redirectToProfile}>закрыть</button>
         </div>
       </div>
     )
   }
-}
+})

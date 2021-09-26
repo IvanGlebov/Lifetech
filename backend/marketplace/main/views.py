@@ -3,6 +3,7 @@ from django.http import JsonResponse
 import json
 from .models import *
 from django.core.serializers import serialize
+from users import views
 
 
 """
@@ -34,4 +35,11 @@ def get_event(request):
     event_id = parsed['event_id']
     event = Event.objects.get(pk=event_id)
     return JsonResponse(event.to_short_dict())
+
+
+"""
+Написать вьюхи для воспитанника, волонтёра и работника
+"""
+
+
 

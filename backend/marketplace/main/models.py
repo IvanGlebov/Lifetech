@@ -1,7 +1,14 @@
 from django.db import models
+from users.models import User
 from django.contrib.auth.models import AbstractUser, UserManager
 
 """
+TODO:
+решить, в каком виде будет осуществляться связь с пользователем:
+скорее всего каждая модель будет связана с пользователем (one_to_one?)
+во вьюхах сложно, скорее всего тоже надо импорить, хотя тогда непонятно, что с юрлами
+
+
 РОЛИ:
 детский дом
 воспитанник
@@ -40,7 +47,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    #person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    person = models.ForeignKey("Userr", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
@@ -52,7 +59,7 @@ class Volunteer(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    #person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    person = models.ForeignKey("User", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
 
 

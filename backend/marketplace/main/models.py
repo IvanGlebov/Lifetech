@@ -1,7 +1,14 @@
 from django.db import models
+from users.models import *
 from django.contrib.auth.models import AbstractUser, UserManager
 
 """
+TODO:
+решить, в каком виде будет осуществляться связь с пользователем:
+скорее всего каждая модель будет связана с пользователем (one_to_one?)
+во вьюхах сложно, скорее всего тоже надо импорить, хотя тогда непонятно, что с юрлами
+
+
 РОЛИ:
 детский дом
 воспитанник
@@ -17,29 +24,6 @@ from django.contrib.auth.models import AbstractUser, UserManager
 детский дом
 """
 
-
-class BasicUser(AbstractUser):
-    first_name = models.CharField(max_length=50)
-    second_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    region = models.ForeignKey("Region", on_delete=models.PROTECT, null=True)
-    user_group = models.ForeignKey('Group', on_delete=models.PROTECT, null=True)
-
-    def to_short_dict(self):
-        return {
-            'id': self.id,
-            'first_name': self.first_name,
-            'second_name': self.second_name,
-            'last_name': self.last_name,
-            'region': self.region.to_short_dict(),
-            'user_group': self.user_group.to_short_dict()
-        }
-
-
-
-
-class CustomUserManager(UserManager):
-    pass
 
 
 
@@ -63,7 +47,7 @@ class Child(models.Model):
     человек - из таблицы MEMBERS
     детский дом
     """
-    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    person = models.ForeignKey("users.User", on_delete=models.PROTECT)
     orphanage = models.ForeignKey("Orphanage", on_delete=models.PROTECT)
 
 
@@ -75,7 +59,7 @@ class Volunteer(models.Model):
     активные мероприятия
     пройденные мероприятия
     """
-    person = models.ForeignKey("BasicUser", on_delete=models.PROTECT)
+    person = models.ForeignKey("users.User", on_delete=models.PROTECT)
     active_events = models.ManyToManyField("Event")
 
 

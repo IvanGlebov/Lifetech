@@ -3,7 +3,7 @@ import {fromJS} from "immutable"
 export const userInitialState = fromJS({
   username: '',
   email: '',
-  authorized: false,
+  authorized: true,
   role: 'Child' //'Child', 'Organizer'
 })
 
